@@ -184,7 +184,7 @@ try {
 
     // Print the response
     $responseJson = $response->getBody();
-    echo $responseJson;
+//    echo $responseJson;
     //echo $responseJson; // Uncomment this line if you want to see the response
 
     $response = json_decode($responseJson);
@@ -229,7 +229,10 @@ try {
     </div>
     <div class="contact-box">
       <div class="title">
-        <h2>Contact</h2>
+<!--        <h2>Contact</h2>-->
+          <?php
+          echo "<a href='$fileUrl'>Downoad PDF</a>"
+          ?>
       </div>
       <div class="call"><i class="fas fa-phone-alt"></i>
         <div class="text"><?php echo $phone;?></div>
@@ -333,6 +336,7 @@ try {
       </div>
     </div>
   </div>
+
 </div>
 </body>
 </html>
