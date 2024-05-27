@@ -104,7 +104,7 @@ try {
 <div id="whatToPrint" class="grid-container">
   <div class="zone-1">
     <div class="toCenter">
-      <img src="images/<?php echo $profile;?>" class="profile">
+      <h1><?php echo ucwords($first_name);?></h1>
     </div>
     <div class="contact-box">
       <div class="title">
