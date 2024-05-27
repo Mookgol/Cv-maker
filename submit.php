@@ -4,151 +4,28 @@ require 'tcpdf/vendor/autoload.php';
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
-  define('Token','HGsZOXpfNC');
-  $skills = [];
-  $skill_levels = [];
-  $hobbies = [];
-  $institutes = [];
-  $degrees = [];
-  $froms = [];
-  $tos = [];
-  $grades = [];
-  $titles = [];
-  $descriptions = [];
-  if(Token == $_POST['token']) {
-//      $temp_profile = $_FILES['profile_image']['tmp_name'];
-//      $profile = $_FILES['profile_image']['name'];
-//      move_uploaded_file($temp_profile, 'images/' . $profile);
-      $first_name = $_POST['first_name'];
-      $last_name = $_POST['last_name'];
-      $location = $_POST['location'];
-      $age = $_POST['age'];
-      $gender = $_POST['gender'];
-      $email = $_POST['email'];
-      $phone = $_POST['phone'];
-      $summary = $_POST['summary'];
-//      array_push($skills, $_POST['skill1']);
-//      array_push($skill_levels, intval($_POST['skill_level1']));
-//      array_push($hobbies, $_POST['hobby1']);
-//      array_push($institutes, $_POST['institute1']);
-//      array_push($degrees, $_POST['degree1']);
-//      array_push($age, $_POST['age']);
-//      array_push($gender, $_POST['gender']);
-//      array_push($phone, $_POST['phone']);
-//      array_push($summary, $_POST['summary']);
-//      array_push($froms, $_POST['from1']);
-//      array_push($tos, $_POST['to1']);
-//      array_push($grades, $_POST['grade1']);
-//      array_push($titles, $_POST['title1']);
-//      array_push($descriptions, $_POST['description1']);
-  }
-//    if(isset($_POST['skill2']) && !empty($_POST['skill2']))
-//    {
-//      if(isset($_POST['skill_level2']) && !empty($_POST['skill_level2']))
-//      {
-//        array_push($skills,$_POST['skill2']);
-//        array_push($skill_levels,intval($_POST['skill_level2']));
-//      }
-//    }
-//    if(isset($_POST['skill3']) && !empty($_POST['skill3']))
-//    {
-//      if(isset($_POST['skill_level3']) && !empty($_POST['skill_level3']))
-//      {
-//        array_push($skills,$_POST['skill3']);
-//        array_push($skill_levels,intval($_POST['skill_level3']));
-//      }
-//    }
-//    if(isset($_POST['skill4']) && !empty($_POST['skill4']))
-//    {
-//      if(isset($_POST['skill_level4']) && !empty($_POST['skill_level4']))
-//      {
-//        array_push($skills,$_POST['skill4']);
-//        array_push($skill_levels,intval($_POST['skill_level4']));
-//      }
-//    }
-//    if(isset($_POST['skill5']) && !empty($_POST['skill5']))
-//    {
-//      if(isset($_POST['skill_level5']) && !empty($_POST['skill_level5']))
-//      {
-//        array_push($skills,$_POST['skill5']);
-//        array_push($skill_levels,intval($_POST['skill_level5']));
-//      }
-//    }
-//    if(isset($_POST['hobby2']) && !empty($_POST['hobby2']))
-//    {
-//      array_push($hobbies,$_POST['hobby2']);
-//    }
-//    if(isset($_POST['hobby3']) && !empty($_POST['hobby3']))
-//    {
-//      array_push($hobbies,$_POST['hobby3']);
-//    }
-//    if(isset($_POST['hobby4']) && !empty($_POST['hobby4']))
-//    {
-//      array_push($hobbies,$_POST['hobby4']);
-//    }
-//    if(isset($_POST['institute2']) && !empty($_POST['institute2']))
-//    {
-//      if(isset($_POST['degree2']) && !empty($_POST['degree2']))
-//      {
-//        if(isset($_POST['from2']) && !empty($_POST['from2']))
-//        {
-//          if(isset($_POST['to2']) && !empty($_POST['to2']))
-//          {
-//            if(isset($_POST['grade2']) && !empty($_POST['grade2']))
-//            {
-//              array_push($institutes,$_POST['institute2']);
-//              array_push($degrees,$_POST['degree2']);
-//              array_push($froms,$_POST['from2']);
-//              array_push($tos,$_POST['to2']);
-//              array_push($grades,$_POST['grade2']);
-//            }
-//          }
-//        }
-//      }
-//    }
-//    if(isset($_POST['institute3']) && !empty($_POST['institute3']))
-//    {
-//      if(isset($_POST['degree3']) && !empty($_POST['degree3']))
-//      {
-//        if(isset($_POST['from3']) && !empty($_POST['from3']))
-//        {
-//          if(isset($_POST['to3']) && !empty($_POST['to3']))
-//          {
-//            if(isset($_POST['grade3']) && !empty($_POST['grade3']))
-//            {
-//              array_push($institutes,$_POST['institute3']);
-//              array_push($degrees,$_POST['degree3']);
-//              array_push($froms,$_POST['from3']);
-//              array_push($tos,$_POST['to3']);
-//              array_push($grades,$_POST['grade3']);
-//            }
-//          }
-//        }
-//      }
-//    }
-//    if(isset($_POST['title2']) && !empty($_POST['title2']))
-//    {
-//      if(isset($_POST['description2']) && !empty($_POST['description2']))
-//      {
-//        array_push($titles,$_POST['title2']);
-//        array_push($descriptions,$_POST['description2']);
-//      }
-//    }
-//    if(isset($_POST['title3']) && !empty($_POST['title3']))
-//    {
-//      if(isset($_POST['description3']) && !empty($_POST['description3']))
-//      {
-//        array_push($titles,$_POST['title3']);
-//        array_push($descriptions,$_POST['description3']);
-//      }
-//    }
-//  }
-//  else
-//  {
-//    header('location: /resumegenerator');
-//  }
-
-
+define('Token', 'HGsZOXpfNC');
+$skills = [];
+$skill_levels = [];
+$hobbies = [];
+$institutes = [];
+$degrees = [];
+$froms = [];
+$tos = [];
+$grades = [];
+$titles = [];
+$descriptions = [];
+if (Token == $_POST['token']) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $location = $_POST['location'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $summary = $_POST['summary'];
+    $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
+}
 
 // Initialize HTTP client
 $client = new Client();
@@ -159,13 +36,13 @@ $url = "https://rest.apitemplate.io/v2/create-pdf?template_id=71877b234e09959a";
 // Payload data
 $payload = [
     'first_name' => $first_name,
-     'last_name' => $last_name,
-     'location' => $location,
-     'age' => $age,
-     'gender'=> $gender,
-     'email'=> $email,
-     'phone'=> $phone,
-     'summary'=> $summary,
+    'last_name' => $last_name,
+    'location' => $location,
+    'age' => $age,
+    'gender' => $gender,
+    'email' => $email,
+    'phone' => $phone,
+    'summary' => $summary,
     // Add other payload data if required
 ];
 
@@ -184,7 +61,7 @@ try {
 
     // Print the response
     $responseJson = $response->getBody();
-//    echo $responseJson;
+    echo $responseJson;
     //echo $responseJson; // Uncomment this line if you want to see the response
 
     $response = json_decode($responseJson);
@@ -217,22 +94,21 @@ try {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <title><?php echo ucwords($first_name). ' Resume'; ?></title>
+  <title><?php echo ucwords($first_name) . ' Resume'; ?></title>
 </head>
 <body>
 
-<div class="grid-container">
+<div id="whatToPrint" class="grid-container">
   <div class="zone-1">
     <div class="toCenter">
       <img src="images/<?php echo $profile;?>" class="profile">
     </div>
     <div class="contact-box">
       <div class="title">
-<!--        <h2>Contact</h2>-->
-          <?php
-          echo "<a href='$fileUrl'>Downoad PDF</a>"
-          ?>
+        <h2>Contact</h2>
       </div>
       <div class="call"><i class="fas fa-phone-alt"></i>
         <div class="text"><?php echo $phone;?></div>
@@ -249,33 +125,29 @@ try {
         <h2>Skills</h2>
       </div>
       <?php
-      for($j=0; $j<count($skills); $j++){
+      for ($j=0; $j<count($skills); $j++) {
           echo "<div class='skill-1'>
                   <p><strong>" . strtoupper($skills[$j]) . "</strong></p>
                   <div class='progress'>";
-            for($i=0;$i<$skill_levels[$j];$i++){
+            for ($i=0; $i<$skill_levels[$j]; $i++) {
               echo '<div class="fas fa-star active"></div>';
-
             }
             echo '</div></div>';
-
           }
       ?>
     </div>
     <div class="hobbies-box">
       <div class="title">
         <h2>Hobbies</h2>
+        
       </div>
       <?php
-        foreach($hobbies as $hobby)
-        {
+        foreach ($hobbies as $hobby) {
           echo "<div class='d-flex align-items-center'>
           <div class='circle'></div>
           <div><strong>" . ucwords($hobby) . "</strong></div>
         </div>";
         }
-
-
       ?>
     </div>
   </div>
@@ -302,8 +174,7 @@ try {
       </div>
       <div class="desc">
         <?php
-          for($i=0; $i<count($institutes);$i++)
-          {
+          for ($i=0; $i<count($institutes);$i++) {
             echo "<ul>
             <li>
               <div class='msg-1'>" . $froms[$i] . "-" . $tos[$i]. " | " . ucwords($degrees[$i]) . ", " . $grades[$i]. "</div>
@@ -322,8 +193,7 @@ try {
       </div>
       <div class="desc">
       <?php
-          for($i=0; $i<count($titles);$i++)
-          {
+          for ($i=0; $i<count($titles);$i++) {
             echo "<ul>
             <li>
               <div class='msg-1'><br></div>
@@ -336,7 +206,55 @@ try {
       </div>
     </div>
   </div>
-
+  <a href="javascript:generatePDF()" id="downloadButton">Click to download</a>
 </div>
+
+<script>
+async function generatePDF() {
+    document.getElementById("downloadButton").innerHTML = "Currently downloading, please wait";
+
+    const A4_WIDTH = 595.28;
+    const A4_HEIGHT = 841.89;
+
+    var downloading = document.getElementById("whatToPrint");
+
+    const { jsPDF } = window.jspdf;
+    var doc = new jsPDF('p', 'pt', 'a4');
+
+    try {
+        const canvas = await html2canvas(downloading, {
+            scale: 2,
+            useCORS: true,
+            allowTaint: true,
+            logging: true,
+        });
+
+        var imgData = canvas.toDataURL('image/png');
+        var imgWidth = A4_WIDTH;
+        var pageHeight = A4_HEIGHT;
+        var imgHeight = (canvas.height * imgWidth) / canvas.width;
+        var heightLeft = imgHeight;
+
+        var position = 0;
+
+        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft >= 0) {
+            position = heightLeft - imgHeight;
+            doc.addPage();
+            doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+        }
+
+        doc.save("Document.pdf");
+        document.getElementById("downloadButton").innerHTML = "Click to download";
+    } catch (error) {
+        console.error("Error generating PDF: ", error);
+        document.getElementById("downloadButton").innerHTML = "Click to download";
+    }
+}
+</script>
+
 </body>
 </html>
