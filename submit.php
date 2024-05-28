@@ -93,10 +93,12 @@ try {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <link rel="stylesheet" href="style.css">
+
   <title><?php echo ucwords($first_name) . ' Resume'; ?></title>
 </head>
 <body>
@@ -104,7 +106,7 @@ try {
 <div id="whatToPrint" class="grid-container">
   <div class="zone-1">
     <div class="toCenter">
-      <h1><?php echo ucwords($first_name);?></h1>
+      <h1 class="highlight"><?php echo ucwords($first_name);?></h1>
     </div>
     <div class="contact-box">
       <div class="title">
