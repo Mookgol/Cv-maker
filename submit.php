@@ -24,6 +24,7 @@ if (Token == $_POST['token']) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $summary = $_POST['summary'];
+    $about_me = $_POST['about_me'];
     $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
 }
 
@@ -43,6 +44,7 @@ $payload = [
     'email' => $email,
     'phone' => $phone,
     'summary' => $summary,
+    'about_me' => $about_me,
     // Add other payload data if required
 ];
 
@@ -140,8 +142,9 @@ try {
     </div>
     <div class="hobbies-box">
       <div class="title">
+        <div class="box">
         <h2>Hobbies</h2>
-        
+        </div>
       </div>
       <?php
         foreach ($hobbies as $hobby) {
@@ -153,18 +156,24 @@ try {
       ?>
     </div>
   </div>
+
+  <!-- ZONE 2 -->
+
+
   <div class="zone-2">
     <div class="headTitle">
-      <h1><?php echo ucwords($first_name);?><br><b><?php echo ucwords($last_name);?></b></h1>
+      <h1><?php echo ucwords($last_name);?></b></h1>
     </div>
     <div class="subTitle">
       <h1><?php echo ucwords($location);?><h1>
     </div>
     <div class="group-1">
       <div class="title">
+
         <div class="box">
           <h2>About Me</h2>
         </div>
+        <p><?php echo ucwords($summary);?></p>
       </div>
 <!--      <div class="desc">--><?php //echo $about_me;?><!--</div>-->
     </div>
@@ -229,6 +238,7 @@ async function generatePDF() {
             useCORS: true,
             allowTaint: true,
             logging: true,
+            display: 'block',
         });
 
         var imgData = canvas.toDataURL('image/png');

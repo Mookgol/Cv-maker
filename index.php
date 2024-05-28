@@ -103,13 +103,13 @@
                     <input type="email" class="form-control" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Summary
+                    <label class="form-label" id="about_me">Summary
                         <span class="info-icon">i
                             <span class="info-box">Summarize your career ambitions, development goals, and the impact you want to make.</span>
                         </span>
                     </label>
                     <div class="form-floating">
-                        <textarea class="form-control" name="summary" style="height: 100px" required></textarea>
+                        <textarea class="form-control" id="summary" name="summary" style="height: 100px" required></textarea>
                     </div>
                 </div>
                 <input type="submit" class="form-control my-2">
