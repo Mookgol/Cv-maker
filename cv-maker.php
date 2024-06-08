@@ -7,9 +7,9 @@ Author: Chuma Mqeke
 */
 
 // Prevent direct access
-if (!defined('ABSPATH')) {
-    exit;
-}
+// if (!defined('ABSPATH')) {
+//     exit;
+// }
 
 // Define constants
 define('CV_MAKER_PATH', plugin_dir_path(__FILE__));
