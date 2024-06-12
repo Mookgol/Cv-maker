@@ -87,6 +87,14 @@
                     <input type="text" class="form-control" id="Gender" name="gender" required>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Race
+                        <span class="info-icon">i
+                            <span class="info-box">Enter your race.</span>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="race" name="race" required>
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Phone number
                         <span class="info-icon">i
                             <span class="info-box">Enter your phone number in the format 0712345678.</span>

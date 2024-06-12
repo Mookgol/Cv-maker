@@ -18,6 +18,7 @@ if (Token == $_POST['token']) {
     $location = $_POST['location'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
+    $race = $_POST['race'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $summary = $_POST['summary'];
@@ -71,13 +72,11 @@ $soft_skills = [
 <div id="whatToPrint" class="grid-container">
 
     <div class="header">
-        <h1><?php echo $first_name.  $last_name; ?></h1>
-        <p><?php echo $location. '' .$phone; ?></p>
-    </div>
-
-    <div class="summary">
-        <h2>Summary</h2>
+        <h1><?php echo $first_name.' ' .$last_name; ?></h1>
+        <p><?php echo $location. ' ' .$phone. ' ' .$age. ' ' .$gender. ' ' .$race. ' ' .$email;  ?></p>
         <p><?php echo $summary; ?></p>
+
+
     </div>
 
     <div class="timeline">
