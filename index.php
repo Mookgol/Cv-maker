@@ -87,14 +87,6 @@
                     <input type="text" class="form-control" id="Gender" name="gender" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Race
-                        <span class="info-icon">i
-                            <span class="info-box">Enter your race.</span>
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" id="race" name="race" required>
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Phone number
                         <span class="info-icon">i
                             <span class="info-box">Enter your phone number in the format 0712345678.</span>
@@ -120,9 +112,84 @@
                         <textarea class="form-control" id="summary" name="summary" style="height: 100px" required></textarea>
                     </div>
                 </div>
-                <input type="submit" class="form-control my-2">
-            </form>
-        </div>
+            </div>
+
+            <div class="border border-dark p-3 mb-3">
+                <h2>Skills (Max:5)</h2>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Skillset Name</label>
+                    <input type="text" class="form-control" name="skill1" required>
+                    <select class="form-select mt-2" name="skill_level1" required>
+                        <option value="">Select stars based upon your skill level</option>
+                        <option value="1">1 - Novice</option>
+                        <option value="2">2 - Advanced Beginner</option>
+                        <option value="3">3 - Competent</option>
+                        <option value="4">4 - Proficient</option>
+                        <option value="5">5 - Expert</option>
+                    </select>
+                </div>
+                <div id="addSkill"></div>
+                <div class="mb-3">
+                    <button type="button" id="skill_hide" class="btn btn-primary form-control" onclick="addSkill()">+</button>
+                </div>
+            </div>
+<!--        <div class="border border-dark p-3 mb-3">-->
+<!--            <h2>Hobbies (Max:4)</h2>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">Hobby</label>-->
+<!--                <input type="text" name="hobby1" class="form-control" required>-->
+<!--            </div>-->
+<!--            <div id="addHobby"></div>-->
+<!--            <div class="mb-3">-->
+<!--                <button type="button" id="hobby_hide" class="btn btn-primary form-control" onclick="addHobby()">+</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="border border-dark p-3 mb-3">-->
+<!--            <h2>Education (Max:3)</h2>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">School/College/University</label>-->
+<!--                <input type="text" name="institute1" class="form-control">-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">Degree Name</label>-->
+<!--                <input type="text" name="degree1" class="form-control">-->
+<!--            </div>-->
+<!--            <div class="mb-3 d-flex justify-content-between">-->
+<!--                <div>-->
+<!--                    <label for="exampleInputEmail1" class="form-label">From</label>-->
+<!--                    <input type="text" name="from1" class="form-control">-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label for="exampleInputEmail1" class="form-label">To</label>-->
+<!--                    <input type="text" name="to1" class="form-control">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">Grade/Score/CGPA</label>-->
+<!--                <input type="text" name="grade1" class="form-control">-->
+<!--            </div>-->
+<!--            <div id="addEducation"></div>-->
+<!--            <div class="mb-3">-->
+<!--                <button type="button" id="education_hide" class="btn btn-primary form-control" onclick="addEducation()">+</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="border border-dark p-3 mb-3">-->
+<!--            <h2>Experience (Max:3)</h2>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">Title</label>-->
+<!--                <input type="text" name="title1" class="form-control">-->
+<!--            </div>-->
+<!--            <div class="mb-3">-->
+<!--                <label for="exampleInputEmail1" class="form-label">Description</label>-->
+<!--                <input type="text" name="description1" class="form-control">-->
+<!--            </div>-->
+<!--            <div id="addExperience"></div>-->
+<!--            <div class="mb-3">-->
+<!--                <button type="button" id="experience_hide" class="btn btn-primary form-control" onclick="addExperience()">+</button>-->
+<!--            </div>-->
+<!--        </div>-->
+        <input type="submit" class="form-control my-2">
+        </form>
     </div>
     <script src="app.js"></script>
 </body>
