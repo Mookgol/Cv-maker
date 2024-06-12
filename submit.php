@@ -1,5 +1,6 @@
 <?php
 
+
 define('Token', 'HGsZOXpfNC');
 $skills = [];
 $skill_levels = [];
@@ -24,7 +25,33 @@ if (Token == $_POST['token']) {
     $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
 }
 
+?>
+<?php
+// PHP variables for the CV content
+$name = "Name & Surname";
+$contact_details = " Town, Province | Cell number | Age / Sex / Race | email address";
+$summary = "Summary of the individual – This is a space to express your passion, development, and ambition within your career. A creative story telling segment that showcases not just your interests, but capabilities as unique individual wanting to make an impact for the future!";
 
+$experiences = [
+    ["year" => 2024, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."],
+    ["year" => 2022, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."],
+    ["year" => 2019, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."],
+    ["year" => 2019, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."],
+    ["year" => 2017, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."],
+    ["year" => 2016, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."]
+];
+
+$technical_skills = [
+    "Skill 1",
+    "Skill 2",
+    "Skill 3"
+];
+
+$soft_skills = [
+    "Skill 1",
+    "Skill 2",
+    "Skill 3"
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,124 +63,50 @@ if (Token == $_POST['token']) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pdfstyle.css">
 
   <title><?php echo ucwords($first_name) . ' Resume'; ?></title>
 </head>
 <body>
-
 <div id="whatToPrint" class="grid-container">
-  <div class="zone-1">
-    <div class="toCenter">
-      <h1 class="highlight"><?php echo ucwords($first_name);?></h1>
-    </div>
-    <div class="contact-box">
-      <div class="title">
-        <h2>Contact</h2>
-      </div>
-      <div class="call"><i class="fas fa-phone-alt"></i>
-        <div class="text"><?php echo $phone;?></div>
-      </div>
-      <div class="Age"><i class="fas fa-envelope"></i>
-<!--        <div class="text">--><?php //echo $Age;?><!--</div>-->
-      </div>
-      <div class="email"><i class="fas fa-envelope"></i>
-        <div class="text"><?php echo $email;?></div>
-      </div>
-    </div>
-    <div class="personal-box">
-      <div class="title">
-        <h2>Skills</h2>
-      </div>
-      <?php
-      for ($j=0; $j<count($skills); $j++) {
-          echo "<div class='skill-1'>
-                  <p><strong>" . strtoupper($skills[$j]) . "</strong></p>
-                  <div class='progress'>";
-            for ($i=0; $i<$skill_levels[$j]; $i++) {
-              echo '<div class="fas fa-star active"></div>';
-            }
-            echo '</div></div>';
-          }
-      ?>
-    </div>
-    <div class="hobbies-box">
-      <div class="title">
-        <div class="box">
-        <h2>Hobbies</h2>
-        </div>
-      </div>
-      <?php
-        foreach ($hobbies as $hobby) {
-          echo "<div class='d-flex align-items-center'>
-          <div class='circle'></div>
-          <div><strong>" . ucwords($hobby) . "</strong></div>
-        </div>";
-        }
-      ?>
-    </div>
-  </div>
 
-  <!-- ZONE 2 -->
+    <div class="header">
+        <h1><?php echo $first_name.  $last_name; ?></h1>
+        <p><?php echo $location. '' .$phone; ?></p>
+    </div>
 
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><?php echo $summary; ?></p>
+    </div>
 
-  <div class="zone-2">
-    <div class="headTitle">
-      <h1><?php echo ucwords($last_name);?></b></h1>
+    <div class="timeline">
+        <h2>Experience</h2>
+        <?php foreach ($experiences as $experience): ?>
+            <div class="timeline-item">
+                <h3><?php echo $experience['year']; ?> - <?php echo $experience['title']; ?></h3>
+                <p><?php echo $experience['description']; ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
-    <div class="subTitle">
-      <h1><?php echo ucwords($location);?><h1>
-    </div>
-    <div class="group-1">
-      <div class="title">
 
-        <div class="box">
-          <h2>About Me</h2>
-        </div>
-        <p><?php echo ucwords($summary);?></p>
-      </div>
-<!--      <div class="desc">--><?php //echo $about_me;?><!--</div>-->
+    <div class="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <?php foreach ($technical_skills as $skill): ?>
+                <li><?php echo $skill; ?></li>
+            <?php endforeach; ?>
+        </ul>
     </div>
-    <div class="group-2">
-      <div class="title">
-        <div class="box">
-          <h2>Education</h2>
-        </div>
-      </div>
-      <div class="desc">
-        <?php
-          for ($i=0; $i<count($institutes);$i++) {
-            echo "<ul>
-            <li>
-              <div class='msg-1'>" . $froms[$i] . "-" . $tos[$i]. " | " . ucwords($degrees[$i]) . ", " . $grades[$i]. "</div>
-              <div class='msg-2'>" . ucwords($institutes[$i]) . "</div>
-            </li>
-          </ul>";
-          }
-        ?>
-      </div>
+
+    <div class="skills">
+        <h2>Soft Skills</h2>
+        <ul>
+            <?php foreach ($soft_skills as $skill): ?>
+                <li><?php echo $skill; ?></li>
+            <?php endforeach; ?>
+        </ul>
     </div>
-    <div class="group-3">
-      <div class="title">
-        <div class="box">
-          <h2>Experience</h2>
-        </div>
-      </div>
-      <div class="desc">
-      <?php
-          for ($i=0; $i<count($titles);$i++) {
-            echo "<ul>
-            <li>
-              <div class='msg-1'><br></div>
-              <div class='msg-2'>" . ucwords($titles[$i]) ."</div>
-              <div class='msg-3'>" . ucfirst($descriptions[$i]) . "</div>
-            </li>
-          </ul>";
-          }
-        ?>
-      </div>
-    </div>
-  </div>
   <a href="javascript:generatePDF()" id="downloadButton">Click to download</a>
 </div>
 
