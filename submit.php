@@ -52,23 +52,25 @@ if (Token == $_POST['token']) {
                     "year" => $year
                 ];
 
-    $soft_skills = [];
-    $soft_skill_levels = [];
+                $soft_skills = [];
+                $soft_skill_levels = [];
 // in the place of $skills ypu will have
-    for ($i = 1; $i <= 5; $i++) {
-        if (isset($_POST["soft_skill$i"]) && isset($_POST["skill_level$i"])) {
-            $soft_skill = $_POST["soft_skill$soft_skill$i"];
-            $soft_skill_level = $_POST["soft_skill_level$i"];
+                for ($i = 1; $i <= 5; $i++) {
+                    if (isset($_POST["soft_skill$i"]) && isset($_POST["skill_level$i"])) {
+                        $soft_skill = $_POST["soft_skill$soft_skill$i"];
+                        $soft_skill_level = $_POST["soft_skill_level$i"];
 
-            // Ensure the fields are not empty
-            if (!empty($skill) && !empty($soft_skill_level)) {
-                $soft_skills[] = $soft_skill;
-                $soft_skill_levels[] = $soft_skill_level;
+                        // Ensure the fields are not empty
+                        if (!empty($skill) && !empty($soft_skill_level)) {
+                            $soft_skills[] = $soft_skill;
+                            $soft_skill_levels[] = $soft_skill_level;
 
+                        }
+                    }
+                }
             }
         }
-    }
-}
+    }}
 ?>
 
 <?php
@@ -94,7 +96,7 @@ $summary = "Summary of the individual – This is a space to express your passio
     <title><?php echo ucwords($first_name) . ' Resume'; ?></title>
 </head>
 <body>
-<div id="whatToPrint" class="grid-container">
+<div id="whatToPrint" class="container">
 
     <div class="header">
         <h1><?php echo $first_name.' ' .$last_name; ?></h1>
