@@ -51,33 +51,30 @@ if (Token == $_POST['token']) {
                     "description" => $description,
                     "year" => $year
                 ];
-
-                $soft_skills = [];
-                $soft_skill_levels = [];
-// in the place of $skills ypu will have
-                for ($i = 1; $i <= 5; $i++) {
-                    if (isset($_POST["soft_skill$i"]) && isset($_POST["skill_level$i"])) {
-                        $soft_skill = $_POST["soft_skill$soft_skill$i"];
-                        $soft_skill_level = $_POST["soft_skill_level$i"];
-
-                        // Ensure the fields are not empty
-                        if (!empty($skill) && !empty($soft_skill_level)) {
-                            $soft_skills[] = $soft_skill;
-                            $soft_skill_levels[] = $soft_skill_level;
-
-                        }
-                    }
-                }
             }
         }
-    }}
+    }
+    $softSkills = [];
+
+    for ($i = 1; $i <= 5; $i++) {
+        $skillName = isset($_POST["softskill" . $i]) ? trim($_POST["softskill" . $i]) : '';
+        $skillLevel = isset($_POST["softskill_level" . $i]) ? trim($_POST["softskill_level" . $i]) : '';
+
+        if (!empty($skillName) && !empty($skillLevel)) {
+            $softSkills[] = [
+                'name' => $skillName,
+                'level' => $skillLevel
+            ];
+        }
+    }
+
+}
 ?>
 
 <?php
 // PHP variables for the CV content
 $name = "Name & Surname";
 $contact_details = " Town, Province | Cell number | Age / Sex / Race | email address";
-$summary = "Summary of the individual – This is a space to express your passion, development, and ambition within your career. A creative story telling segment that showcases not just your interests, but capabilities as unique individual wanting to make an impact for the future!";
 
 
 ?>
@@ -87,7 +84,8 @@ $summary = "Summary of the individual – This is a space to express your passio
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
@@ -106,10 +104,10 @@ $summary = "Summary of the individual – This is a space to express your passio
 
     <div class="timeline">
         <h2>Experience</h2>
-        <?php foreach ($experiences as $experience): ?>
-            <div class="timeline-item">
-                <h3><?php echo $experience['year']; ?> - <?php echo $experience['title']; ?></h3>
-                <p><?php echo $experience['description']; ?></p>
+        <?php foreach ($experiences as $index => $experience): ?>
+            <div class="timeline-item <?php echo $index % 2 == 0 ? 'left' : 'right'; ?>">
+                <h3><?php echo htmlspecialchars($experience['year']); ?> | <?php echo htmlspecialchars($experience['title']); ?></h3>
+                <p><?php echo htmlspecialchars($experience['description']); ?></p>
             </div>
         <?php endforeach; ?>
     </div>
@@ -129,11 +127,12 @@ $summary = "Summary of the individual – This is a space to express your passio
     <div class="skills">
         <h2>Soft Skills</h2>
         <ul>
-            <?php foreach ($soft_skills as $skill): ?>
-                <li><?php echo $skill; ?></li>
+            <?php foreach ($softSkills as $skill): ?>
+                <li><?php echo htmlspecialchars($skill['name']) . ' - ' . htmlspecialchars($skill['level']); ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
+
     <a href="javascript:generatePDF()" id="downloadButton">Click to download</a>
 </div>
 

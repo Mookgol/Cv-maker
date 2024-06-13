@@ -47,7 +47,7 @@
                 <div class="d-flex justify-content-between mb-3">
                     <div>
                         <label class="form-label">First Name
-                            <span class="info-icon">i<i class="fa-solid fa-circle-info"></i>
+                            <span class="info-icon">&#9432;<i class="fa-solid fa-circle-info"></i>
                                 <span class="info-box">Enter your first name as it appears on official documents.</span>
                             </span>
                         </label>
@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <label class="form-label">Last Name
-                            <span class="info-icon">i
+                            <span class="info-icon">&#9432;
                                 <span class="info-box">Enter your last name as it appears on official documents.</span>
                             </span>
                         </label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Location (Area and Province)
-                        <span class="info-icon">i
+                        <span class="info-icon">&#9432;
                             <span class="info-box">Enter the area and province where you currently reside.</span>
                         </span>
                     </label>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Age
-                        <span class="info-icon">i
+                        <span class="info-icon">&#9432;
                             <span class="info-box">Enter your age in years.</span>
                         </span>
                     </label>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Gender
-                        <span class="info-icon">i
+                        <span class="info-icon">&#9432;
                             <span class="info-box">Enter your gender.</span>
                         </span>
                     </label>
@@ -88,15 +88,15 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Phone number
-                        <span class="info-icon">i
+                        <span class="info-icon">&#9432;
                             <span class="info-box">Enter your phone number in the format 0712345678.</span>
                         </span>
                     </label>
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="0712345678" required>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="073123456" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email address
-                        <span class="info-icon">i
+                        <span class="info-icon">&#9432;
                             <span class="info-box">Enter your valid email address. We'll never share your email with anyone else.</span>
                         </span>
                     </label>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" id="about_me">Summary
-                        <span class="info-icon">i
+                        <span class="info-icon">&#x24D8;
                             <span class="info-box">Summarize your career ambitions, development goals, and the impact you want to make.</span>
                         </span>
                     </label>
@@ -134,12 +134,11 @@
         </div>
 
         <div class="border border-dark p-3 mb-3">
-
             <h2>Soft Skills (Max:5)</h2>
             <div class="mb-3">
-                <label class="form-label">soft_Skillset Name</label>
-                <input type="text" class="form-control" name="soft_skill1" required>
-                <select class="form-select mt-2" name="soft_skill_level1" required>
+                <label class="form-label">Soft Skill Name</label>
+                <input type="text" class="form-control" name="softskill1" required>
+                <select class="form-select mt-2" name="softskill_level1" required>
                     <option value="">Select stars based upon your skill level</option>
                     <option value="1">1 - Novice</option>
                     <option value="2">2 - Advanced Beginner</option>
@@ -148,13 +147,12 @@
                     <option value="5">5 - Expert</option>
                 </select>
             </div>
-            <div id="addSkill"></div>
+            <div id="addSoftSkill"></div>
             <div class="mb-3">
-                <button type="button" id="soft_skill_hide" class="btn btn-primary form-control" onclick="softSkill()">+</button>
+                <button type="button" id="softskill_hide" class="btn btn-primary form-control" onclick="addSoftSkill()">+</button>
             </div>
         </div>
-
-        <div class="border border-dark p-3 mb-3">
+            <div class="border border-dark p-3 mb-3">
 
             <h2>Experience (Max:3)</h2>
             <div class="mb-3">
