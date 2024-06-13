@@ -134,6 +134,7 @@
         </div>
 
         <div class="border border-dark p-3 mb-3">
+
             <h2>Soft Skills (Max:5)</h2>
             <div class="mb-3">
                 <label class="form-label">soft_Skillset Name</label>
@@ -154,6 +155,7 @@
         </div>
 
         <div class="border border-dark p-3 mb-3">
+
             <h2>Experience (Max:3)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
@@ -163,6 +165,12 @@
                 <label for="exampleInputEmail1" class="form-label">Description</label>
                 <input type="text" name="description1" class="form-control">
             </div>
+
+            <div class="mb-3">
+                <label for="year1" class="form-label">Year</label>
+                <input type="number" name="year1" class="form-control" required>
+            </div>
+
             <div id="addExperience"></div>
             <div class="mb-3">
                 <button type="button" id="experience_hide" class="btn btn-primary form-control" onclick="addExperience()">+</button>

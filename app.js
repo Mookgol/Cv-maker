@@ -117,26 +117,33 @@ function addEducation(){
         educationHide.style = "display:none";
     }
 }
+
+
+
 function addExperience() {
     let addExperience = document.getElementById('addExperience');
     let experienceHide = document.getElementById('experience_hide');
-    if (experience_count < 3) {
-        ++experience_count;
-        var field =
-            `<div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Title</label>
-            <input type="text" name="title${experience_count}" class="form-control">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Description</label>
-            <input type="text" name="description${experience_count}" class="form-control">
-        </div>`;
+    if(experience_count < 3) {
+        experience_count++;
+        var field = `
+                <div class="mb-3">
+                    <label for="title${experience_count}" class="form-label">Title ${experience_count}</label>
+                    <input type="text" name="title${experience_count}" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description${experience_count}" class="form-label">Description ${experience_count}</label>
+                    <input type="text" name="description${experience_count}" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="year${experience_count}" class="form-label">Year ${experience_count}</label>
+                    <input type="number" name="year${experience_count}" class="form-control" required>
+                </div>`;
         var htmlObject = document.createElement('div');
         htmlObject.innerHTML = field;
-        addExperience.insertAdjacentElement("beforeend", htmlObject);
+        addExperience.appendChild(htmlObject);
     }
-    if (experience_count == 3) {
-        experienceHide.style = "display:none";
+    if(experience_count == 3) {
+        experienceHide.style.display = "none";
     }
-
 }
+
