@@ -114,25 +114,25 @@
                 </div>
             </div>
 
-            <div class="border border-dark p-3 mb-3">
-                <h2>Skills (Max:5)</h2>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Skillset Name</label>
-                    <input type="text" class="form-control" name="skill1" required>
-                    <select class="form-select mt-2" name="skill_level1" required>
-                        <option value="">Select stars based upon your skill level</option>
-                        <option value="1">1 - Novice</option>
-                        <option value="2">2 - Advanced Beginner</option>
-                        <option value="3">3 - Competent</option>
-                        <option value="4">4 - Proficient</option>
-                        <option value="5">5 - Expert</option>
-                    </select>
-                </div>
-                <div id="addSkill"></div>
-                <div class="mb-3">
-                    <button type="button" id="skill_hide" class="btn btn-primary form-control" onclick="addSkill()">+</button>
-                </div>
+        <div class="border border-dark p-3 mb-3">
+            <h2>Skills (Max:5)</h2>
+            <div class="mb-3">
+                <label class="form-label">Skillset Name</label>
+                <input type="text" class="form-control" name="skill1" required>
+                <select class="form-select mt-2" name="skill_level1" required>
+                    <option value="">Select stars based upon your skill level</option>
+                    <option value="1">1 - Novice</option>
+                    <option value="2">2 - Advanced Beginner</option>
+                    <option value="3">3 - Competent</option>
+                    <option value="4">4 - Proficient</option>
+                    <option value="5">5 - Expert</option>
+                </select>
             </div>
+            <div id="addSkill"></div>
+            <div class="mb-3">
+                <button type="button" id="skill_hide" class="btn btn-primary form-control" onclick="addSkill()">+</button>
+            </div>
+        </div>
 <!--        <div class="border border-dark p-3 mb-3">-->
 <!--            <h2>Hobbies (Max:4)</h2>-->
 <!--            <div class="mb-3">-->

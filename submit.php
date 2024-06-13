@@ -2,8 +2,6 @@
 
 
 define('Token', 'HGsZOXpfNC');
-$skills = [];
-$skill_levels = [];
 $hobbies = [];
 $institutes = [];
 $degrees = [];
@@ -22,8 +20,28 @@ if (Token == $_POST['token']) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $summary = $_POST['summary'];
-   
+
     $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
+    $skills = [];
+    $skill_levels = [];
+
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST["skill$i"]) && isset($_POST["skill_level$i"])) {
+            $skill = $_POST["skill$i"];
+            $skill_level = $_POST["skill_level$i"];
+
+            // Ensure the fields are not empty
+            if (!empty($skill) && !empty($skill_level)) {
+                $skills[] = $skill;
+                $skill_levels[] = $skill_level;
+            }
+        }
+    }
+    // Display or process the skills and skill levels
+    for ($i = 0; $i < count($skills); $i++) {
+        echo "Skill: " . htmlspecialchars($skills[$i]) . " - Level: " . htmlspecialchars($skill_levels[$i]) . "<br>";
+    }
+
 }
 
 ?>
@@ -42,11 +60,6 @@ $experiences = [
     ["year" => 2016, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."]
 ];
 
-$technical_skills = [
-    "Skill 1",
-    "Skill 2",
-    "Skill 3"
-];
 
 $soft_skills = [
     "Skill 1",
@@ -89,14 +102,17 @@ $soft_skills = [
         <?php endforeach; ?>
     </div>
 
-    <div class="skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <?php foreach ($technical_skills as $skill): ?>
-                <li><?php echo $skill; ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+    <!-- Displaying the skills -->
+    <?php if (!empty($skills)): ?>
+        <div class="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <?php foreach ($skills as $skill): ?>
+                    <li><?php echo htmlspecialchars($skill); ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
     <div class="skills">
         <h2>Soft Skills</h2>
