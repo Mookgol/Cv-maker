@@ -24,7 +24,7 @@ if (Token == $_POST['token']) {
     $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
     $skills = [];
     $skill_levels = [];
-
+// in the place of $skills ypu will have
     for ($i = 1; $i <= 5; $i++) {
         if (isset($_POST["skill$i"]) && isset($_POST["skill_level$i"])) {
             $skill = $_POST["skill$i"];
@@ -42,6 +42,21 @@ if (Token == $_POST['token']) {
         echo "Skill: " . htmlspecialchars($skills[$i]) . " - Level: " . htmlspecialchars($skill_levels[$i]) . "<br>";
     }
 
+    $soft_skills = [];
+    $soft_skill_levels = [];
+// in the place of $skills ypu will have
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST["soft_skill$i"]) && isset($_POST["skill_level$i"])) {
+            $soft_skill = $_POST["soft_skill$soft_skill$i"];
+            $soft_skill_level = $_POST["soft_skill_level$i"];
+
+            // Ensure the fields are not empty
+            if (!empty($skill) && !empty($soft_skill_level)) {
+                $soft_skills[] = $soft_skill;
+                $soft_skill_levels[] = $soft_skill_level;
+            }
+        }
+    }
 }
 
 ?>
@@ -60,12 +75,6 @@ $experiences = [
     ["year" => 2016, "title" => "Most Recent Employment or Education", "description" => "A description of the role or academic journey taken. Including a description of the key areas of expertise, skills excellence and what you did really well within this period."]
 ];
 
-
-$soft_skills = [
-    "Skill 1",
-    "Skill 2",
-    "Skill 3"
-];
 ?>
 <!DOCTYPE html>
 <html lang="en">
