@@ -112,7 +112,6 @@
                         <textarea class="form-control" id="summary" name="summary" style="height: 100px" required></textarea>
                     </div>
                 </div>
-            </div>
 
         <div class="border border-dark p-3 mb-3">
             <h2>Skills (Max:5)</h2>
@@ -135,6 +134,28 @@
         </div>
 
         <div class="border border-dark p-3 mb-3">
+
+            <h2>Soft Skills (Max:5)</h2>
+            <div class="mb-3">
+                <label class="form-label">soft_Skillset Name</label>
+                <input type="text" class="form-control" name="soft_skill1" required>
+                <select class="form-select mt-2" name="soft_skill_level1" required>
+                    <option value="">Select stars based upon your skill level</option>
+                    <option value="1">1 - Novice</option>
+                    <option value="2">2 - Advanced Beginner</option>
+                    <option value="3">3 - Competent</option>
+                    <option value="4">4 - Proficient</option>
+                    <option value="5">5 - Expert</option>
+                </select>
+            </div>
+            <div id="addSkill"></div>
+            <div class="mb-3">
+                <button type="button" id="soft_skill_hide" class="btn btn-primary form-control" onclick="softSkill()">+</button>
+            </div>
+        </div>
+
+        <div class="border border-dark p-3 mb-3">
+
             <h2>Experience (Max:3)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
@@ -144,10 +165,12 @@
                 <label for="exampleInputEmail1" class="form-label">Description</label>
                 <input type="text" name="description1" class="form-control">
             </div>
+
             <div class="mb-3">
                 <label for="year1" class="form-label">Year</label>
                 <input type="number" name="year1" class="form-control" required>
             </div>
+
             <div id="addExperience"></div>
             <div class="mb-3">
                 <button type="button" id="experience_hide" class="btn btn-primary form-control" onclick="addExperience()">+</button>

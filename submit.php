@@ -24,7 +24,7 @@ if (Token == $_POST['token']) {
     $profile = isset($_POST['profile']) ? $_POST['profile'] : 'default-profile.png';
     $skills = [];
     $skill_levels = [];
-
+// in the place of $skills ypu will have
     for ($i = 1; $i <= 5; $i++) {
         if (isset($_POST["skill$i"]) && isset($_POST["skill_level$i"])) {
             $skill = $_POST["skill$i"];
@@ -51,6 +51,20 @@ if (Token == $_POST['token']) {
                     "description" => $description,
                     "year" => $year
                 ];
+
+    $soft_skills = [];
+    $soft_skill_levels = [];
+// in the place of $skills ypu will have
+    for ($i = 1; $i <= 5; $i++) {
+        if (isset($_POST["soft_skill$i"]) && isset($_POST["skill_level$i"])) {
+            $soft_skill = $_POST["soft_skill$soft_skill$i"];
+            $soft_skill_level = $_POST["soft_skill_level$i"];
+
+            // Ensure the fields are not empty
+            if (!empty($skill) && !empty($soft_skill_level)) {
+                $soft_skills[] = $soft_skill;
+                $soft_skill_levels[] = $soft_skill_level;
+
             }
         }
     }
@@ -62,6 +76,7 @@ if (Token == $_POST['token']) {
 $name = "Name & Surname";
 $contact_details = " Town, Province | Cell number | Age / Sex / Race | email address";
 $summary = "Summary of the individual – This is a space to express your passion, development, and ambition within your career. A creative story telling segment that showcases not just your interests, but capabilities as unique individual wanting to make an impact for the future!";
+
 
 ?>
 <!DOCTYPE html>
